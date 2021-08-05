@@ -104,7 +104,7 @@ int main(void)
             
             //Print Results
             printf("Current Gain: %s\n\r", getCurrentGain());
-            printf("Measurement (signed): 0x%X\n\r\n\r", ADC0_GetConversionResult());
+            printf("Measurement: 0x%X\n\r\n\r", ADC0_GetConversionResult());
         }
         
         //Wait for UART to finish
