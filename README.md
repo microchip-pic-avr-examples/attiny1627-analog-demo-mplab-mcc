@@ -7,20 +7,20 @@ The ATtiny1627 family of microcontrollers contains an Analog-to-Digital Converte
 
 ## Related Documentation
 
-- [ATtiny1627 Documentation](https://www.microchip.com/en-us/product/ATTINY1627)
+- [ATtiny1627 Documentation](https://www.microchip.com/wwwproducts/en/ATTINY1627?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=attiny1627-analog-demo-mplab-mcc-github)
 
 ## Software Used
 
-- [MPLAB® X IDE 5.50 or newer](http://www.microchip.com/mplab/mplab-x-ide)
-- [MPLAB XC8 2.30 or newer](http://www.microchip.com/mplab/compilers)
-- [MPLAB Code Configurator (MCC) v4.2.3](https://www.microchip.com/mplab/mplab-code-configurator)
-  - [Melody Library v1.84.5](https://www.microchip.com/mplab/mplab-code-configurator)
+- [MPLAB® X IDE v5.50 or newer](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=attiny1627-analog-demo-mplab-mcc-github)
+- [MPLAB XC8 v2.30 or newer](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=attiny1627-analog-demo-mplab-mcc-github)
+- [MPLAB Code Configurator (MCC) v4.2.3](https://www.microchip.com/en-us/development-tools-tools-and-software/embedded-software-center/mplab-code-configurator?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=attiny1627-analog-demo-mplab-mcc-github)
+  - [Melody Library v1.84.5](https://www.microchip.com/en-us/development-tools-tools-and-software/embedded-software-center/mplab-code-configurator?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=attiny1627-analog-demo-mplab-mcc-github)
 - [ATtiny_DFP v2.7.128 or newer](https://packs.download.microchip.com/)
-- [MPLAB Data Visualizer Plugin](#) or serial terminal
+- [MPLAB Data Visualizer Plugin](https://www.microchip.com/en-us/development-tools-tools-and-software/embedded-software-center/mplab-data-visualizer?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=attiny1627-analog-demo-mplab-mcc-github) or serial terminal
 
 ## Hardware Used
 
-- [ATtiny1627 Curiosity Nano Evaluation Kit (DM080104)](#)
+- [ATtiny1627 Curiosity Nano Evaluation Kit (DM080104)](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM080104?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=attiny1627-analog-demo-mplab-mcc-github)
 - Variable Power Supply or Other Signal Source
 
 ## I/O Setup
@@ -56,7 +56,7 @@ Press the play button to open the COM port.
 
 ![Connect to the device](./images/DVsetup3.PNG)
 
-Finally, set the terminal window to use the COM port as a data source. 
+Finally, set the terminal window to use the COM port as a data source.
 
 ![Configure the Terminal](./images/DVsetup4.PNG)
 

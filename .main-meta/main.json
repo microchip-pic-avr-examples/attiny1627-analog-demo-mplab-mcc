@@ -4,10 +4,10 @@
     "content": {
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.attiny1627-analog-demo-mplab-mcc",
-        "version": " ",
-        "displayName": "",
+        "version": "1.0.0",
+        "displayName": "Using the ADC and PGA on the ATtiny1627 Family",
         "projectName": "attiny1627-analog-demo-mplab-mcc",
-        "shortDescription": "This demo demonstrates the Programmable Gain Amplifier PGA in the ADC",
+        "shortDescription": "This demo demonstrates the Programmable Gain Amplifier (PGA) in the ADC.",
         "ide": {
             "name": "MPLAB X",
             "semverRange": ">=5.50.0"
@@ -15,16 +15,16 @@
         "compiler": [
             {
                 "name": "XC8",
-                "semverRange": "^2.31.0"
+                "semverRange": "^2.30.0"
             }
         ],
         "dfp": {
-            "name": "",
-            "semverRange": ""
+            "name": "ATtiny_DFP",
+            "semverRange": "^2.7.128"
         },
         "configurator": {
-            "name": "",
-            "semverRange": ""
+            "name": "MCC",
+            "semverRange": "4.2.3"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -36,10 +36,27 @@
                 "versionRange": "*"
             }
         },
-        "author": "Robert Perkel",
-        "subcategories": [],
-        "peripherals": [],
-        "keywords": [],
+        "author": "Microchip",
+        "subcategories": [
+          [
+             "Peripherals", "RTC"
+          ],
+          [
+             "Peripherals", "ADC"
+          ],
+          [
+             "Peripherals", "CCL"
+          ],
+          [
+             "Peripherals", "EVSYS"
+          ]
+        ],
+        "peripherals": [
+          "RTC", "ADC", "CCL", "EVSYS"
+        ],
+        "keywords": [
+          "12-bit ADC", "ADC", "PGA", "Analog", "CCL", "RTC", "Sleep", "EVSYS"
+        ],
         "additionalData": {
             "longDescription": {
                 "metaDataVersion": "1.0.0",
