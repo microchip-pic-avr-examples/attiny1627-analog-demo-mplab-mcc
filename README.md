@@ -22,7 +22,8 @@ The ATtiny1627 family of microcontrollers contains an Analog-to-Digital Converte
 
 - [ATtiny1627 Curiosity Nano Evaluation Kit (DM080104)](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM080104?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=attiny1627-analog-demo-mplab-mcc-github)
 - Variable Power Supply or Other Signal Source
-
+- Breadboard and Wire (for connecting)
+  
 ## I/O Setup
 
 | I/O Pin | Name
