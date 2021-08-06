@@ -7,6 +7,10 @@ extern "C" {
     
 #include <stdbool.h>
 
+    /*
+     * These function set/get/clear flags from the ISR to the main function.
+     */
+    
     void setResultFlag(void);
     void clearResultFlag(void);
     bool getResultFlag(void);
