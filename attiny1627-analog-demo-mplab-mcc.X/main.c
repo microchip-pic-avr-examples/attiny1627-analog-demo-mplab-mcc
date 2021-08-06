@@ -102,6 +102,9 @@ int main(void)
             //Result Changed
             clearResultFlag();
             
+            //Toggle LED
+            LED0_Toggle();
+            
             //Print Results
             printf("Current Gain: %s\n\r", getCurrentGain());
             printf("Measurement: 0x%X\n\r\n\r", ADC0_GetConversionResult());

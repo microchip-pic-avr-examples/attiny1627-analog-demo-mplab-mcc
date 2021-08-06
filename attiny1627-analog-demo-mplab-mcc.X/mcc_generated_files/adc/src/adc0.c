@@ -207,9 +207,7 @@ void ADC0_RegisterWindowCallback(adc_irq_cb_t f)
 
 ISR(ADC0_SAMPRDY_vect)
 {
-    /* Insert your ADC Sample ready interrupt handling code here */
     setResultFlag();
-    LED0_Toggle();
     
     // Clear the interrupt flag
     ADC0.INTFLAGS = ADC_SAMPRDY_bm;

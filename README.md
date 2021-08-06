@@ -2,44 +2,87 @@
 
 [![MCHP](images/microchip.png)](https://www.microchip.com)
 
-# Update the title for attiny1627-analog-demo-mplab-mcc here
-
-<!-- This is where the introduction to the example goes, including mentioning the peripherals used -->
+# Using the ADC and PGA on the ATtiny1627 Family
+The ATtiny1627 family of microcontrollers contains an Analog-to-Digital Converter (ADC) with an embedded Programmable Gain Amplifier (PGA). This demo shows the PGA and ADC by acquiring a PGA amplified sample once per second. Other peripherals used in this demo include the Real-Time Counter (RTC), Event System (EVSYS) and the Configurable Custom Logic (CCL).
 
 ## Related Documentation
 
-<!-- Any information about an application note or tech brief can be linked here. Use unbreakable links!
-     In addition a link to the device family landing page and relevant peripheral pages as well:
-     - [AN3381 - Brushless DC Fan Speed Control Using Temperature Input and Tachometer Feedback](https://microchip.com/00003381/)
-     - [PIC18F-Q10 Family Product Page](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q10-product-family) -->
+- [ATtiny1627 Documentation](https://www.microchip.com/en-us/product/ATTINY1627)
 
 ## Software Used
 
-<!-- All software used in this example must be listed here. Use unbreakable links!
-     - MPLABÂ® X IDE 5.30 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
-     - MPLABÂ® XC8 2.10 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
-     - MPLABÂ® Code Configurator (MCC) 3.95.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - MPLABÂ® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - Microchip PIC18F-Q Series Device Support (1.4.109) or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/) -->
-
-- MPLAB® X IDE 5.50.0 or newer [(MPLAB® X IDE 5.50)](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_MPAE_Examples&utm_content=attiny1627-analog-demo-mplab-mcc-github)
-- MPLAB® XC8 2.31.0 or newer compiler [(MPLAB® XC8 2.31)](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_MPAE_Examples&utm_content=attiny1627-analog-demo-mplab-mcc-github)
+- [MPLABÂ® X IDE 5.50 or newer](http://www.microchip.com/mplab/mplab-x-ide)
+- [MPLAB XC8 2.30 or newer](http://www.microchip.com/mplab/compilers)
+- [MPLAB Code Configurator (MCC) v4.2.3](https://www.microchip.com/mplab/mplab-code-configurator)
+  - [Melody Library v1.84.5](https://www.microchip.com/mplab/mplab-code-configurator)
+- [ATtiny_DFP v2.7.128 or newer](https://packs.download.microchip.com/)
+- [MPLAB Data Visualizer Plugin](#) or serial terminal
 
 ## Hardware Used
 
-<!-- All hardware used in this example must be listed here. Use unbreakable links!
-     - PIC18F47Q10 Curiosity Nano [(DM182029)](https://www.microchip.com/Developmenttools/ProductDetails/DM182029)
-     - Curiosity Nano Base for Click boardsâ„¢ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
-     - POT Click boardâ„¢ [(MIKROE-3402)](https://www.mikroe.com/pot-click) -->
+- [ATtiny1627 Curiosity Nano Evaluation Kit (DM080104)](#)
+- Variable Power Supply or Other Signal Source
 
-## Setup
+## I/O Setup
 
-<!-- Explain how to connect hardware and set up software. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
+| I/O Pin | Name
+| ------  | ----
+| RB2 | UART TX
+| RB3 | UART RX (unused)  
+| RB5 | Analog Input (+)
+| RB7 | LED0
+| RC4 | Switch 0 (SW0)
+
+## Peripheral Configuration
+
+**UART** - 9600 Baud, 8-bits, No Parity, 1 Stop Bit  
+**ADC** - Single Sample, Triggered on Event (Channel 0), VREF = VDD  
+**RTC** -  1kHz Internal Oscillator   
+**EVSYS** - Channel 0 Event Generator: RTC / 1024
+
+## Setting MPLAB Data Visualizer
+
+First, open Data Visualizer by pressing the "DV" icon in the toolbar.
+
+*If this icon is not shown, please install MPLAB Data Visualizer in the Tools &rarr; Plugins window before continuing.*
+
+![Data Visualizer Icon](./images/DVsetup1.PNG)
+
+Then select the COM port associated with the Curiosity Nano by clicking on COM port entry. Set any settings required in the box below (defaults are OK for this example).
+
+![Select the COM Port](./images/DVsetup2.PNG)
+
+Press the play button to open the COM port.
+
+![Connect to the device](./images/DVsetup3.PNG)
+
+Finally, set the terminal window to use the COM port as a data source. 
+
+![Configure the Terminal](./images/DVsetup4.PNG)
+
+## Regenerating the API
+
+**Caution! If regenerating the MCC API, please be careful when merging changes to avoid overwriting the modified ISR handlers. This will break functionality.**
+
+When code can't be merged, MCC asks the user to approve changes by pressing the arrow or X next to the relevant change. Closing the window will decline any unapproved changes.
+
+![Merge Warning](./images/mergeWarning.PNG)
 
 ## Operation
 
-<!-- Explain how to operate the example. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
+This demo operates by periodically amplifying then measuring the input signal to the ADC. This occurs approximately once per second.
+
+LED0 on the microcontroller toggles when ready to print a result. The current gain of the PGA and the result are printed to the UART terminal at 9600 baud (see example image below). Once the UART is idle, then the microcontroller enters standby sleep to save power.
+
+![Sample Output](./images/sampleOutput.PNG)
+
+To switch gains, the input signal from SW0 is debounced by a CCL. The rising edge interrupt from the CCL wakes the microcontroller to:
+
+- Stop the RTC
+- Modify the gain of the PGA (1x, 2x, 4x, 8x, 16x, then repeat)
+- Print the new gain to the terminal
+- Restart the RTC
+- Return to standby sleep
 
 ## Summary
-
-<!-- Summarize what the example has shown -->
+This demo has shown the PGA functionality in the ATtiny1627 family of microcontrollers.
