@@ -2,7 +2,7 @@
 
 [![MCHP](images/microchip.png)](https://www.microchip.com)
 
-# Using the ADC and PGA on the ATtiny1627 Family
+# Signal Scaling with the ADC and PGA on the ATtiny1627 Family
 The ATtiny1627 family of microcontrollers contains an Analog-to-Digital Converter (ADC) with an embedded Programmable Gain Amplifier (PGA). This demo shows the PGA and ADC by acquiring a PGA amplified sample once per second. Other peripherals used in this demo include the Real-Time Counter (RTC), Event System (EVSYS) and the Configurable Custom Logic (CCL).
 
 ## Related Documentation
@@ -23,7 +23,7 @@ The ATtiny1627 family of microcontrollers contains an Analog-to-Digital Converte
 - [ATtiny1627 Curiosity Nano Evaluation Kit (DM080104)](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM080104?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_attiny1627&utm_content=attiny1627-analog-demo-mplab-mcc-github)
 - Variable Power Supply or Other Signal Source
 - Breadboard and Wire (for connecting)
-  
+
 ## I/O Setup
 
 | I/O Pin | Name
@@ -37,7 +37,7 @@ The ATtiny1627 family of microcontrollers contains an Analog-to-Digital Converte
 ## Peripheral Configuration
 
 **UART** - 9600 Baud, 8-bits, No Parity, 1 Stop Bit  
-**ADC** - Single Sample, Triggered on Event (Channel 0), VREF = VDD  
+**ADC** - Single Sample, Triggered on Event (Channel 0), VREF = VDD, PGA Enabled and Connected
 **RTC** -  1kHz Internal Oscillator   
 **EVSYS** - Channel 0 Event Generator: RTC / 1024
 
@@ -65,7 +65,7 @@ Finally, set the terminal window to use the COM port as a data source.
 
 **Caution! If regenerating the MCC API, please be careful when merging changes to avoid overwriting the modified ISR handlers. This will break functionality.**
 
-When code can't be merged, MCC asks the user to approve changes by pressing the arrow or X next to the relevant change. Closing the window will decline any unapproved changes.
+When code can't be merged, MCC asks the user to approve changes by pressing the arrow or X next to the relevant change. Closing the merge window will decline any unapproved changes.
 
 ![Merge Warning](./images/mergeWarning.PNG)
 
@@ -86,4 +86,4 @@ To switch gains, the input signal from SW0 is debounced by a CCL. The rising edg
 - Return to standby sleep
 
 ## Summary
-This demo has shown the PGA functionality in the ATtiny1627 family of microcontrollers.
+This demo has shown the PGA functionality of the ADC in the ATtiny1627 family of microcontrollers.

@@ -5,7 +5,7 @@
         "metaDataVersion": "1.1.0",
         "name": "com.microchip.mcu8.mplabx.project.attiny1627-analog-demo-mplab-mcc",
         "version": "1.0.0",
-        "displayName": "Using the ADC and PGA on the ATtiny1627 Family",
+        "displayName": "Signal Scaling with the ADC and PGA on the ATtiny1627 Family",
         "projectName": "attiny1627-analog-demo-mplab-mcc",
         "shortDescription": "This demo demonstrates the Programmable Gain Amplifier (PGA) in the ADC.",
         "ide": {
@@ -45,6 +45,9 @@
              "Peripherals", "ADC"
           ],
           [
+             "Peripherals", "USART"
+          ],
+          [
              "Peripherals", "CCL"
           ],
           [
@@ -52,7 +55,7 @@
           ]
         ],
         "peripherals": [
-          "RTC", "ADC", "CCL", "EVSYS"
+          "RTC", "ADC", "CCL", "EVSYS", "USART"
         ],
         "keywords": [
           "12-bit ADC", "ADC", "PGA", "Analog", "CCL", "RTC", "Sleep", "EVSYS"
