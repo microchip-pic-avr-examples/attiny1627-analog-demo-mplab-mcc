@@ -66,8 +66,8 @@ int8_t ADC0_Initialize(void)
     //WINCM No Window Comparison; WINSRC RESULT; 
     ADC0.CTRLD = 0x0;
 
-    //SAMPDUR 255; 
-    ADC0.CTRLE = 0xFF;
+    //SAMPDUR 100; 
+    ADC0.CTRLE = 0x64;
 
     //ADCPGASAMPDUR 6 ADC cycles; GAIN 1X Gain; PGABIASSEL 1/4x BIAS current; PGAEN enabled; 
     ADC0.PGACTRL = 0x19;
