@@ -105,6 +105,7 @@ int main(void)
             //Result Changed
             clearResultFlag();
             
+            //Convert result to floating point
             result = ADC0_GetConversionResult() * bitsPerVolt;
             
             //Toggle LED
