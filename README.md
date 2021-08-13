@@ -82,7 +82,7 @@ When code can't be auto-merged, MCC asks the user to approve changes by pressing
 
 This demo periodically amplifies then acquires a single-ended analog input signal to the ADC, then prints the measured result about once per second.
 
-LED0 on the microcontroller toggles when ready to print a result. The current gain of the PGA and the result are printed to the UART terminal at 9600 baud (see example image below). Once the UART is idle, then the microcontroller enters Standby Sleep to save power.
+LED0 on the microcontroller toggles when ready to print a result. The current gain of the PGA and the result are printed to the UART terminal at 9600 baud (see example image below). Once the UART is idle, then the microcontroller enters Standby Sleep to save power.  
 
 ![Sample Output](./images/sampleOutput.PNG)
 
