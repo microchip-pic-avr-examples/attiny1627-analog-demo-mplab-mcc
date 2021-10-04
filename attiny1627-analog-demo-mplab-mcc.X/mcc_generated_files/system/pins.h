@@ -1,11 +1,35 @@
 /**
-  @Company
-    Microchip Technology Inc.
+ * Generated Pins header File
+ * 
+ * @file pins.h
+ * 
+ * @defgroup  pinsdriver Pins Driver
+ * 
+ * @brief This is generated driver header for pins. 
+ *        This header file provides APIs for all pins selected in the GUI.
+ *
+ * @version Driver Version  1.0.0
+*/
 
-  @Description
-    This Source file provides APIs.
-    Generation Information :
-    Driver Version    :   1.0.0
+/*
+© [2021] Microchip Technology Inc. and its subsidiaries.
+
+    Subject to your compliance with these terms, you may use Microchip 
+    software and any derivatives exclusively with Microchip products. 
+    You are responsible for complying with 3rd party license terms  
+    applicable to your use of 3rd party software (including open source  
+    software) that may accompany Microchip software. SOFTWARE IS ?AS IS.? 
+    NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS 
+    SOFTWARE, INCLUDING ANY IMPLIED WARRANTIES OF NON-INFRINGEMENT,  
+    MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT 
+    WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
+    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY 
+    KIND WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF 
+    MICROCHIP HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE 
+    FORESEEABLE. TO THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP?S 
+    TOTAL LIABILITY ON ALL CLAIMS RELATED TO THE SOFTWARE WILL NOT 
+    EXCEED AMOUNT OF FEES, IF ANY, YOU PAID DIRECTLY TO MICROCHIP FOR 
+    THIS SOFTWARE.
 */
 
 #ifndef PINS_H_INCLUDED
@@ -86,13 +110,95 @@
 #define LED0_DisableDigitalInputBuffer() do { PORTB.PIN7CTRL = (PORTB.PIN7CTRL & ~PORT_ISC_gm) | 0x4 ; } while(0)
 #define LED0_EnableInterruptForLowLevelSensing() do { PORTB.PIN7CTRL = (PORTB.PIN7CTRL & ~PORT_ISC_gm) | 0x5 ; } while(0)
 
+/**
+ * @ingroup  pinsdriver
+ * @brief GPIO and peripheral I/O initialization
+ * @param none
+ * @return none
+ */
 void PIN_MANAGER_Initialize();
+
+/**
+ * @ingroup  pinsdriver
+ * @brief Default Interrupt Handler for PB2 pin. 
+ *        This is a predefined interrupt handler to be used together with the PB2_SetInterruptHandler() method.
+ *        This handler is called every time the PB2 ISR is executed. 
+ * @pre PIN_MANAGER_Initialize() has been called at least once
+ * @param none
+ * @return none
+ */
 void PB2_DefaultInterruptHandler(void);
+
+/**
+ * @ingroup  pinsdriver
+ * @brief Interrupt Handler Setter for PB2 pin input-sense-config functionality.
+ *        Allows selecting an interrupt handler for PB2 at application runtime
+ * @pre PIN_MANAGER_Initialize() has been called at least once
+ * @param InterruptHandler function pointer.
+ * @return none
+ */
 void PB2_SetInterruptHandler(void (* interruptHandler)(void)) ; 
+
+/**
+ * @ingroup  pinsdriver
+ * @brief Default Interrupt Handler for PB5 pin. 
+ *        This is a predefined interrupt handler to be used together with the PB5_SetInterruptHandler() method.
+ *        This handler is called every time the PB5 ISR is executed. 
+ * @pre PIN_MANAGER_Initialize() has been called at least once
+ * @param none
+ * @return none
+ */
 void PB5_DefaultInterruptHandler(void);
+
+/**
+ * @ingroup  pinsdriver
+ * @brief Interrupt Handler Setter for PB5 pin input-sense-config functionality.
+ *        Allows selecting an interrupt handler for PB5 at application runtime
+ * @pre PIN_MANAGER_Initialize() has been called at least once
+ * @param InterruptHandler function pointer.
+ * @return none
+ */
 void PB5_SetInterruptHandler(void (* interruptHandler)(void)) ; 
+
+/**
+ * @ingroup  pinsdriver
+ * @brief Default Interrupt Handler for PC4 pin. 
+ *        This is a predefined interrupt handler to be used together with the PC4_SetInterruptHandler() method.
+ *        This handler is called every time the PC4 ISR is executed. 
+ * @pre PIN_MANAGER_Initialize() has been called at least once
+ * @param none
+ * @return none
+ */
 void PC4_DefaultInterruptHandler(void);
+
+/**
+ * @ingroup  pinsdriver
+ * @brief Interrupt Handler Setter for PC4 pin input-sense-config functionality.
+ *        Allows selecting an interrupt handler for PC4 at application runtime
+ * @pre PIN_MANAGER_Initialize() has been called at least once
+ * @param InterruptHandler function pointer.
+ * @return none
+ */
 void PC4_SetInterruptHandler(void (* interruptHandler)(void)) ; 
+
+/**
+ * @ingroup  pinsdriver
+ * @brief Default Interrupt Handler for PB7 pin. 
+ *        This is a predefined interrupt handler to be used together with the PB7_SetInterruptHandler() method.
+ *        This handler is called every time the PB7 ISR is executed. 
+ * @pre PIN_MANAGER_Initialize() has been called at least once
+ * @param none
+ * @return none
+ */
 void PB7_DefaultInterruptHandler(void);
+
+/**
+ * @ingroup  pinsdriver
+ * @brief Interrupt Handler Setter for PB7 pin input-sense-config functionality.
+ *        Allows selecting an interrupt handler for PB7 at application runtime
+ * @pre PIN_MANAGER_Initialize() has been called at least once
+ * @param InterruptHandler function pointer.
+ * @return none
+ */
 void PB7_SetInterruptHandler(void (* interruptHandler)(void)) ; 
 #endif /* PINS_H_INCLUDED */

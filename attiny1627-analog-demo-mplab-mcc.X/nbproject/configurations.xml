@@ -113,7 +113,7 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
-      <itemPath>PGA_ADC_DEMO_Tiny2.mc3</itemPath>
+      <itemPath>attiny1627-analog-demo-mplab-mcc.mc3</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -331,6 +331,8 @@
         <property key="memories.programmemory.ranges" value="0-1fff"/>
         <property key="memories.rww" value="true"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/C62081/Documents/GIT Repos/attiny1627-analog-demo-mplab-mcc/attiny1627-analog-demo-mplab-mcc.X/debug/free/attiny1627-analog-demo-mplab-mcc_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"
@@ -559,6 +561,8 @@
         <property key="memories.programmemory.ranges" value="0-1fff"/>
         <property key="memories.rww" value="true"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/C62081/Documents/GIT Repos/attiny1627-analog-demo-mplab-mcc/attiny1627-analog-demo-mplab-mcc.X/debug/pro/attiny1627-analog-demo-mplab-mcc_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"
