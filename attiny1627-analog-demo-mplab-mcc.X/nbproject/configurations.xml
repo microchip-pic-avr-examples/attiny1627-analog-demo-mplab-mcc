@@ -499,6 +499,8 @@
         <property key="memories.programmemory.ranges" value="0-1fff"/>
         <property key="memories.rww" value="true"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmerToGoFilePath"
+                  value="C:/Users/C62081/Documents/GIT Repos/attiny1627-analog-demo-mplab-mcc/attiny1627-analog-demo-mplab-mcc.X/debug/pro/attiny1627-analog-demo-mplab-mcc_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"
