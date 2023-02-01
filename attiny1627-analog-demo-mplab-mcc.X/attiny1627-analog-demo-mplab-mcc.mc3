@@ -1,4 +1,4 @@
-<config configName="default" projectName="PGA_ADC_DEMO_Tiny2" configVersion="1.1" device="ATtiny1627" deviceLibraryClass="com.microchip.mcc.melody.Library" coreVersion="5.3.3">
+<config configName="default" projectName="PGA_ADC_DEMO_Tiny2" configVersion="1.1" device="ATtiny1627" deviceLibraryClass="com.microchip.mcc.melody.Library" coreVersion="5.4.14">
    <usedPackages class="java.util.ArrayList">
       <package packageName="@mchp-mcc/avr-8bit" version="4.2.9" contentType="MELODY">
          <modules class="java.util.ArrayList"/>
