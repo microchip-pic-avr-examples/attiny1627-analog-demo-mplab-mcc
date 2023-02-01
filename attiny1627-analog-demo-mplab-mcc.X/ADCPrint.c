@@ -1,6 +1,6 @@
 #include "ADCPrint.h"
 
-#include <xc.h>
+#include <avr/io.h>
 #include <stdbool.h>
 
 static volatile bool resultFlag = false;

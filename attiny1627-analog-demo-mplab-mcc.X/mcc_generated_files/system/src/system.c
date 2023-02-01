@@ -1,14 +1,16 @@
 /**
-  @Company
-    Microchip Technology Inc.
-
-  @Description
-    This Source file provides APIs.
-    Generation Information :
-    Driver Version    :   1.0.0
+ * System Driver Source File
+ * 
+ * @file system.c
+ * 
+ * @ingroup systemdriver
+ * 
+ * @brief This is the generated driver implementation file for the System Driver.
+ *
+ * @version Driver Version 1.0.1
 */
 /*
-© [2021] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -28,7 +30,9 @@
     THIS SOFTWARE.
 */
 
-
+ /**
+   Section: Included Files
+ */
 #include "../system.h"
 
 /**
@@ -51,9 +55,6 @@ void SYSTEM_Initialize(void)
     CPUINT_Initialize();
 }
 
-/**
- * \brief Initialize SLPCTRL_Initialize interface
- */
 int8_t SLPCTRL_Initialize()
 {
     //SEN enabled; SMODE STDBY; 

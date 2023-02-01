@@ -8,11 +8,11 @@
  * @brief This is generated driver implementation for pins. 
  *        This file provides implementations for pin APIs for all pins selected in the GUI.
  *
- * @version Driver Version 1.0.0
+ * @version Driver Version 1.0.1
 */
 
 /*
-© [2021] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -34,15 +34,14 @@
 
 #include "../pins.h"
 
+static void (*PB3_InterruptHandler)(void);
 static void (*PB2_InterruptHandler)(void);
 static void (*PB5_InterruptHandler)(void);
 static void (*PC4_InterruptHandler)(void);
 static void (*PB7_InterruptHandler)(void);
-void PORT_Initialize(void);
 
 void PIN_MANAGER_Initialize()
 {
-  PORT_Initialize();
   /* DIR Registers Initialization */
     PORTA.DIR = 0x0;
     PORTB.DIR = 0x84;
@@ -50,7 +49,7 @@ void PIN_MANAGER_Initialize()
 
   /* OUT Registers Initialization */
     PORTA.OUT = 0x0;
-    PORTB.OUT = 0x0;
+    PORTB.OUT = 0x4;
     PORTC.OUT = 0x0;
 
   /* PINxCTRL registers Initialization */
@@ -79,8 +78,6 @@ void PIN_MANAGER_Initialize()
     PORTC.PIN6CTRL = 0x0;
     PORTC.PIN7CTRL = 0x0;
 
-  /* Multi-pin Config registers Initialization */
-
   /* PORTMUX Initialization */
     PORTMUX.CCLROUTEA = 0x0;
     PORTMUX.EVSYSROUTEA = 0x0;
@@ -90,31 +87,25 @@ void PIN_MANAGER_Initialize()
     PORTMUX.USARTROUTEA = 0x0;
 
   // register default ISC callback functions at runtime; use these methods to register a custom function
+    PB3_SetInterruptHandler(PB3_DefaultInterruptHandler);
     PB2_SetInterruptHandler(PB2_DefaultInterruptHandler);
     PB5_SetInterruptHandler(PB5_DefaultInterruptHandler);
     PC4_SetInterruptHandler(PC4_DefaultInterruptHandler);
     PB7_SetInterruptHandler(PB7_DefaultInterruptHandler);
 }
 
-void PORT_Initialize(void)
+/**
+  Allows selecting an interrupt handler for PB3 at application runtime
+*/
+void PB3_SetInterruptHandler(void (* interruptHandler)(void)) 
 {
-  /* On AVR devices all peripherals are enable from power on reset, this
-  * disables all peripherals to save power. Driver shall enable
-  * peripheral if used */
+    PB3_InterruptHandler = interruptHandler;
+}
 
-  /* Set all pins to low power mode */
-    for (uint8_t i = 0; i < 8; i++) {
-      *((uint8_t *)&PORTA + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
-    }
-    
-    for (uint8_t i = 0; i < 8; i++) {
-      *((uint8_t *)&PORTB + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
-    }
-    
-    for (uint8_t i = 0; i < 8; i++) {
-      *((uint8_t *)&PORTC + 0x10 + i) |= 1 << PORT_PULLUPEN_bp;
-    }
-    
+void PB3_DefaultInterruptHandler(void)
+{
+    // add your PB3 interrupt custom code
+    // or set custom function using PB3_SetInterruptHandler()
 }
 /**
   Allows selecting an interrupt handler for PB2 at application runtime
@@ -177,6 +168,10 @@ ISR(PORTA_PORT_vect)
 ISR(PORTB_PORT_vect)
 { 
     // Call the interrupt handler for the callback registered at runtime
+    if(VPORTB.INTFLAGS & PORT_INT3_bm)
+    {
+       PB3_InterruptHandler(); 
+    }
     if(VPORTB.INTFLAGS & PORT_INT2_bm)
     {
        PB2_InterruptHandler(); 

@@ -1,14 +1,16 @@
 /**
-  @Company
-    Microchip Technology Inc.
-
-  @Description
-    This Source file provides APIs.
-    Generation Information :
-    Driver Version    :   1.0.0
+ * System Driver Header File
+ * 
+ * @file system.h
+ * 
+ * @defgroup systemdriver System Driver
+ * 
+ * @brief This is the generated header file for the System Driver.
+ *
+ * @version Driver Version 1.0.1
 */
 /*
-© [2021] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -36,6 +38,9 @@
 extern "C" {
 #endif
 
+/**
+  Section: Included Files
+*/
 #include "../system/utils/compiler.h"
 #include "../system/clock.h"
 #include "../system/clock.h"
@@ -48,11 +53,18 @@ extern "C" {
 #include "../vref/vref.h"
 #include "../system/interrupt.h"
 /**
- * Initializes MCU, drivers and middleware in the project
-**/
+ * @ingroup systemdriver
+ * @brief This initializes the system module and must be called before any other API is called.
+ * This routine should only be called once during system initialization.
+ * @param None
+ * @return None
+*/
 void SYSTEM_Initialize(void);
 
 #ifdef __cplusplus
 }
 #endif
 #endif	/* MCC_H */
+/**
+ End of File
+*/

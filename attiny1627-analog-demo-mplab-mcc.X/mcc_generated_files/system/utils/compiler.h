@@ -5,10 +5,10 @@
   @Description
     This Source file provides APIs.
     Generation Information :
-    Driver Version    :   1.0.0
+    Driver Version    :   1.0.1
 */
 /*
-© [2021] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -46,6 +46,9 @@
 #if defined(__GNUC__)
 #include <avr/io.h>
 #include <avr/builtins.h>
+#if defined(__XC8__)
+#include <xc.h>
+#endif
 #elif defined(__ICCAVR__)
 #define ENABLE_BIT_DEFINITIONS 1
 #include <ioavr.h>

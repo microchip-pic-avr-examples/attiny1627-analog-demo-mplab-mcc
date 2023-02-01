@@ -8,7 +8,7 @@
     Driver Version    :   1.0.0
 */
 /*
-© [2021] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -186,31 +186,13 @@ diff_adc_result_t ADC0_GetDiffConversion(bool enablePGA, adc_0_channel_t channel
 uint8_t ADC0_GetResolution(void);
 
 /**
- * \brief Setter function for ADC Sample Ready interrupt callback.
+ * \brief Register a callback function to be called if conversion satisfies window criteria.
  *
- * \param [in] callback Pointer to custom callback
- *
- * \return Nothing.
- */
-void ADC0_SampleReadyCallbackRegister(adc_irq_cb_t callback);
-
-/**
- * \brief Setter function for ADC Result Ready interrupt callback.
- *
- * \param [in] callback Pointer to custom callback
+ * \param[in] f Pointer to function to be called
  *
  * \return Nothing.
  */
-void ADC0_ResultReadyCallbackRegister(adc_irq_cb_t callback);
-
-/**
- * \brief Setter function for ADC error callback.
- *
- * \param [in] callback Pointer to custom callback
- *
- * \return Nothing.
- */
-void ADC0_ErrorCallbackRegister(adc_irq_cb_t callback);
+void ADC0_RegisterWindowCallback(adc_irq_cb_t f);
 
 /* PGA API's */
 /**

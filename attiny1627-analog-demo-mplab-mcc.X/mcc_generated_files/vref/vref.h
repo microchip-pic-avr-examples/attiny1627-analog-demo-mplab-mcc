@@ -1,14 +1,16 @@
 /**
-  @Company
-    Microchip Technology Inc.
-
-  @Description
-    This Source file provides APIs.
-    Generation Information :
-    Driver Version    :   1.0.0
+ * VREF Generated Driver API Header File
+ * 
+ * @file vref.h
+ * 
+ * @defgroup  vref VREF
+ * 
+ * @brief This is the generated header file for the VREF module.
+ *
+ * @version VREF Driver Version 1.0.0
 */
 /*
-© [2021] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -32,6 +34,10 @@
 #ifndef VREF_H_INCLUDED
 #define VREF_H_INCLUDED
 
+/**
+  Section: Included Files
+*/
+
 #include "../system/utils/compiler.h"
 
 #ifdef __cplusplus
@@ -39,24 +45,15 @@ extern "C" {
 #endif
 
 /**
-  @Summary
-    Initializes the VREF_Initialize.
-
-  @Description
-    This routine initializes the VREF_Initialize.
-    This routine should only be called once during system initialization.
-
-  @Preconditions
-    None
-
-  @Param
-    None
-    
-   @Example
-    <code>
-    VREF_Initialize();
-    </code>
+  Section: VREF APIs
 */
+
+/**
+ * @ingroup vref
+ * @brief  This routine initializes the VREF and must be called only once during system initialization.
+ * @param int8_t
+ * @return void
+ */
 int8_t VREF_Initialize(void);
 
 #ifdef __cplusplus
@@ -64,3 +61,6 @@ int8_t VREF_Initialize(void);
 #endif
 
 #endif /* VREF_H_INCLUDED */
+/**
+ End of File
+*/

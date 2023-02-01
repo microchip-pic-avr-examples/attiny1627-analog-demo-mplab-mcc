@@ -1,14 +1,16 @@
 /**
-  @Company
-    Microchip Technology Inc.
-
-  @Description
-    This Source file provides APIs.
-    Generation Information :
-    Driver Version    :   1.0.0
+ * VREF Generated Driver File
+ * 
+ * @file vref.c
+ * 
+ * @ingroup  vref
+ * 
+ * @brief This is the generated driver implementation file for the VREF module.
+ *
+ * @version VREF Driver Version 1.0.1
 */
 /*
-© [2021] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -28,15 +30,28 @@
     THIS SOFTWARE.
 */
 
+/**
+  Section: Included Files
+*/
+
 #include "../vref.h"
+
+/**
+  Section: VREF APIs
+*/
 
 int8_t VREF_Initialize(void)
 {
     // AC0REFSEL Voltage reference at 1.024V; 
     VREF.CTRLA = 0x0;
     
-    // AC0REFEN disabled; ADC0REFEN disabled; NVMREFEN disabled; 
+    // ADC0REFEN disabled; AC0REFEN disabled; NVMREFEN disabled; 
     VREF.CTRLB = 0x0;
+
+
         
 	return 0;
 }
+/**
+ End of File
+*/

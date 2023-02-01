@@ -8,7 +8,7 @@
     Driver Version    :   1.0.0
 */
 /*
-© [2021] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -31,9 +31,7 @@
 
 #include "../adc0.h"
 
-adc_irq_cb_t ADC0_SampleReadyCallback = NULL;
-adc_irq_cb_t ADC0_ResultReadyCallback = NULL;
-adc_irq_cb_t ADC0_ErrorCallback = NULL;
+adc_irq_cb_t ADC0_window_cb = NULL;
 
 /**
  * \brief Initialize ADC interface
@@ -186,58 +184,40 @@ uint8_t ADC0_GetResolution(void)
     return (ADC0.COMMAND & ADC_MODE_SINGLE_8BIT_gc) ? 8 : 12;
 }
 
-void ADC0_SampleReadyCallbackRegister(adc_irq_cb_t callback)
+void ADC0_RegisterWindowCallback(adc_irq_cb_t f)
 {
-    ADC0_SampleReadyCallback = callback;
-}
-
-void ADC0_ResultReadyCallbackRegister(adc_irq_cb_t callback)
-{
-    ADC0_ResultReadyCallback = callback;
-}
-
-void ADC0_ErrorCallbackRegister(adc_irq_cb_t callback)
-{
-    ADC0_ErrorCallback = callback;
+    ADC0_window_cb = f;
 }
 
 ISR(ADC0_SAMPRDY_vect)
 {
-    //Clear the interrupt flag
-    ADC0.INTFLAGS = ADC_SAMPRDY_bm;
+    /* Insert your ADC Sample ready interrupt handling code here */
+    setResultFlag();
 
-    if (ADC0_SampleReadyCallback != NULL)
-    {
-        ADC0_SampleReadyCallback();
-    }
+    // Clear the interrupt flag
+    ADC0.INTFLAGS = ADC_SAMPRDY_bm;
 }
 
 ISR(ADC0_RESRDY_vect)
 {
-    //Clear the interrupt flag
-    ADC0.INTFLAGS = ADC_RESRDY_bm;
+    /* Insert your ADC result ready interrupt handling code here */
 
-    if (ADC0_ResultReadyCallback != NULL)
-    {
-        ADC0_ResultReadyCallback();
-    }
+    /* The interrupt flag has to be cleared manually */
+    ADC0.INTFLAGS = ADC_RESRDY_bm;
 }
 
 ISR(ADC0_ERROR_vect)
 {
-    //Clear the interrupt flag
+    /* Insert your ADC Error interrupt handling code here */
+
+    /* The interrupt flag has to be cleared manually */
     ADC0.INTFLAGS = ADC_TRIGOVR_bm;
 
-    //Clear the interrupt flag
+    /* The interrupt flag has to be cleared manually */
     ADC0.INTFLAGS = ADC_SAMPOVR_bm;
 
-    //Clear the interrupt flag
+    /* The interrupt flag has to be cleared manually */
     ADC0.INTFLAGS = ADC_RESOVR_bm;
-
-    if (ADC0_ErrorCallback != NULL)
-    {
-        ADC0_ErrorCallback();
-    }
 }
 
 /* PGA API's */

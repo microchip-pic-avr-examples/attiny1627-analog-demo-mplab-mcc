@@ -1,14 +1,16 @@
 /**
-  @Company
-    Microchip Technology Inc.
-
-  @Description
-    This Source file provides APIs.
-    Generation Information :
-    Driver Version    :   1.0.0
+  * CLKCTRL Generated Driver File
+  *
+  * @file clkctrl.c
+  *
+  * @ingroup clkctrl
+  *
+  * @brief This file contains the driver code for CLKCTRL module.
+  *
+  * @version CLKCTRL Driver Version 1.0.2
 */
 /*
-© [2021] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -29,7 +31,6 @@
 */
 
 
-#include <xc.h>
 #include "../clock.h"
 
 void CLOCK_Initialize(void)
