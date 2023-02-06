@@ -19,7 +19,7 @@
     THIS SOFTWARE.
 */
 
-#include <avr/io.h>
+#include <xc.h>
 
 // Set the EVSYS module to the options selected in the user interface.
 

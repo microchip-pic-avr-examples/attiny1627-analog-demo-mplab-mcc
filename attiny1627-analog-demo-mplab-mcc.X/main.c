@@ -124,7 +124,13 @@ int main(void)
             
             //Print Results
             printf("Current Gain: %s\n\r", getCurrentGain());
-            printf("Measured: %1.3fV\n\r\n\r", result);
+            printf("Measured: ");
+            
+            while (!USART0_IsTxDone());
+            USART0.STATUS = USART_TXCIF_bm;
+            
+            //Floats are slow
+            printf("%1.3fV\n\r\n\r", result);
         }
         
         //Wait for UART to finish
