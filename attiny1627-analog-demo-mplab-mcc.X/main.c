@@ -79,6 +79,18 @@ void onButtonPress(void)
     setGainFlag();
 }
 
+void enableRTCStandby(void)
+{
+     while (RTC.STATUS & RTC_CTRLABUSY_bm);
+     RTC.CTRLA |= RTC_RUNSTDBY_bm | RTC_RTCEN_bm;
+}
+
+void waitForUART(void)
+{
+    while (!USART0_IsTxDone());
+    USART0.STATUS = USART_TXCIF_bm;
+}
+
 int main(void)
 {
     SYSTEM_Initialize();
@@ -88,6 +100,9 @@ int main(void)
     
     //Enable the ADC in Standby and Debug
     ENABLE_ADC_STDBY_DBG();
+    
+    //Enable RTC Standby and RTC
+    enableRTCStandby();
     
     //Write an empty byte to set the USART TXCIF flags
     USART0_Write(0x00);
@@ -126,17 +141,15 @@ int main(void)
             printf("Current Gain: %s\n\r", getCurrentGain());
             printf("Measured: ");
             
-            while (!USART0_IsTxDone());
-            USART0.STATUS = USART_TXCIF_bm;
+            waitForUART();
             
             //Floats are slow
             printf("%1.3fV\n\r\n\r", result);
         }
         
         //Wait for UART to finish
-        while (!USART0_IsTxDone());
-        USART0.STATUS = USART_TXCIF_bm;
-                
+        waitForUART();     
+        
         //If the button was pressed while printing
         if (getGainFlag())
             continue;

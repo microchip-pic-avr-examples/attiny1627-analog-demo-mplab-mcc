@@ -56,9 +56,6 @@ int8_t RTC_Initialize(void)
     // CMP disabled; OVF disabled; 
     RTC.INTCTRL = 0x0;
 
-    // CORREN disabled; PRESCALER RTC Clock / 4; RTCEN enabled; RUNSTDBY disabled; 
-    RTC.CTRLA = 0x11;
-
 
         while (RTC.PITSTATUS > 0) { /* Wait for all register to be synchronized */
     }
