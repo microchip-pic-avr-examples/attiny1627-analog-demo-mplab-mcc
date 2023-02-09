@@ -37,9 +37,9 @@ The ATtiny1627 family of microcontrollers contains an Analog-to-Digital Converte
 ## Peripheral Configuration
 
 **UART** - 9600 Baud, 8-bits, No Parity, 1 Stop Bit, Printf support  
-**ADC** (Non-PGA Settings) - Single Sample, Triggered on Event (Channel 0), AQ time = 100 cycles, VREF = VDD, Run Standby (set in main)  
+**ADC** (Non-PGA Settings) - Single Sample, Triggered on Event (Channel 0), AQ time = 100 cycles, V<sub>REF</sub> = V<sub>DD</sub>, Run Standby (set in main)  
 **ADC** (PGA Settings) - PGA Enabled and Connected, PGA Sample Time = 6 Cycles, 1/4 Bias Current  
-**RTC** -  1kHz Internal Oscillator, PIT Enabled, PIT Period = OFF  
+**RTC** -  1 kHz Internal Oscillator, PIT Enabled, PIT Period = OFF  
 **EVSYS** - Channel 0 Event Generator: RTC / 1024  
 **CCL** - Connected to SW0, Run Standby, D-input Flip-Flop Synchronized to 1 kHz internal oscillator, Filter Enabled
 
@@ -73,11 +73,11 @@ LED0 on the microcontroller toggles when ready to print a result. The current ga
 
 To switch the set gain, the input signal from SW0 is debounced by a CCL. The rising edge interrupt from the CCL wakes the microcontroller to:
 
-1. Stop the RTC
-2. Modify the gain of the PGA (1x, 2x, 4x, 8x, 16x, then repeat)
-3. Print the new gain to the terminal
-4. Restart the RTC
-5. Return to Standby Sleep
+1. Stop the RTC.
+2. Modify the gain of the PGA (1x, 2x, 4x, 8x, 16x, then repeat).
+3. Print the new gain to the terminal.
+4. Restart the RTC.
+5. Return to Standby Sleep.
 
 ## Summary
 This demo has demonstrated the PGA functionality of the ADC to acquire small signals in the ATtiny1627 family of microcontrollers.
